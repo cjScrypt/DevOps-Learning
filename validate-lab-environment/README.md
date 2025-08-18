@@ -55,7 +55,7 @@ The labs require Microsoft Edge or an Azure DevOps-supported browser.
 1. Navigate to the newly created `eShopOnWeb` project.
 2. Go to **Repos > Files**, select **Import a Repository**, then click **Import**.
 3. Use the URL:  
-   `https://github.com/cjScrypt/DevOps-Learning`
+   `https://github.com/MicrosoftLearning/eShopOnWeb`
 
    ![Import repository](./images/import-repo.png)
 
