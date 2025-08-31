@@ -111,8 +111,8 @@ it to create an agent and configure agent pools.
 
 4.  Select the **Presets**.
 
-    [![Screenshot of the create virtual machine with preset
-    configuration.](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-virtual-machine-preset.png)](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-virtual-machine-preset.png){target="_blank"}
+    ![Screenshot of the create virtual machine with preset
+    configuration.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-virtual-machine-preset.png)
 
 5.  Select the **Dev/Test** as the workload environment and the
     **General purpose** as the workload type.
@@ -177,8 +177,8 @@ it to create an agent and configure agent pools.
 7.  Leave the **Grant access permission to all pipelines** option
     unchecked.
 
-    [![Screenshot showing add agent pool options with self-hosted
-    type.](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-new-agent-pool-self-hosted-agent.png)](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-new-agent-pool-self-hosted-agent.png){target="_blank"}
+    ![Screenshot showing add agent pool options with self-hosted
+    type.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/create-new-agent-pool-self-hosted-agent.png)
 
     > **Note**: Granting access permission to all pipelines is not
     > recommended for production environments. It is only used in this
@@ -206,12 +206,7 @@ it to create an agent and configure agent pools.
 3.  Start a PowerShell session and run the following commands to create
     a folder named **agent**.
 
-    ::: {.code-header .mt-3 .mb-0 .bg-light .d-flex .justify-content-between .border}
-    [code]{.mx-2 .text-muted .text-capitalize .font-weight-light}
-    Copy
-    :::
-
-    ``` {#codeBlock0 .mt-0}
+    ``` 
     mkdir agent ; cd agent        
     ```
 
@@ -221,7 +216,7 @@ it to create an agent and configure agent pools.
 4.  Run the following command to extract the content of the downloaded
     agent installer files:
 
-    ``` {#codeBlock1 .mt-0}
+    ```
     Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$HOME\Downloads\vsts-agent-win-x64-4.255.0.zip", "$PWD")
     ```
 
@@ -249,8 +244,8 @@ it to create an agent and configure agent pools.
 
 3.  Select the **Personal access tokens** menu item.
 
-    [![Screenshot showing the personal access tokens
-    menu.](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/personal-access-token-menu.png)](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/personal-access-token-menu.png)
+    ![Screenshot showing the personal access tokens
+    menu.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/personal-access-token-menu.png)
 
 4.  Select the **New Token** button.
 
@@ -272,8 +267,8 @@ it to create an agent and configure agent pools.
 12. Copy the token value and save it in a safe place (you will not be
     able to see it again. You can only regenerate the token).
 
-    [![Screenshot showing the personal access token
-    configuration.](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/personal-access-token-configuration.png)](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/personal-access-token-configuration.png)
+    ![Screenshot showing the personal access token
+    configuration.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/personal-access-token-configuration.png)
 
     > \[!IMPORTANT\] Use the least privilege option, **Agent Pools (Read
     > & Manage)**, only for the agent configuration. Also, make sure you
@@ -321,8 +316,8 @@ it to create an agent and configure agent pools.
     -   Accept the default option (**N**) to allow the service to start
         immediately after configuration is finished.
 
-    [![Screenshot showing the agent
-    configuration.](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/agent-configuration.png)](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/agent-configuration.png)
+    ![Screenshot showing the agent
+    configuration.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/agent-configuration.png)
 
     > **Note**: The agent configuration process will take a few minutes
     > to complete. Once it is done, you will see a message indicating
@@ -343,8 +338,8 @@ it to create an agent and configure agent pools.
     the Azure DevOps portal, navigating to the agent pool and clicking
     on the **Agents** tab. You should see the new agent in the list.
 
-    [![Screenshot showing the agent
-    status.](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/agent-status.png)](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/agent-status.png)
+    ![Screenshot showing the agent
+    status.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/agent-status.png)
 
     > **Note**: For more details on Windows agents, see: [Self-hosted
     > Windows
@@ -365,7 +360,7 @@ it to create an agent and configure agent pools.
     install Azure CLI:
 
 
-    ``` {#codeBlock3 .mt-0}
+    ```
     $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'; Remove-Item .\AzureCLI.msi
     ```
 
@@ -446,12 +441,7 @@ In this task, you will create a YAML-based pipeline for the
     designating the target agent pool the following content, designating
     the newly created self-hosted agent pool:
 
-    ::: {.code-header .mt-3 .mb-0 .bg-light .d-flex .justify-content-between .border}
-    [code]{.mx-2 .text-muted .text-capitalize .font-weight-light}
-    Copy
-    :::
-
-    ``` {#codeBlock4 .mt-0}
+    ```
      pool: 
        name: eShopOnWebSelfPool
        demands: Agent.Name -equals eShopOnWebSelfAgent
@@ -460,8 +450,8 @@ In this task, you will create a YAML-based pipeline for the
     > **WARNING**: Be careful with copy/paste, make sure you have the
     > same indentation shown above.
 
-    [![Screenshot showing the YAML pool
-    syntax.](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/eshoponweb-ci-pr-agent-pool.png)](/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/eshoponweb-ci-pr-agent-pool.png)
+    ![Screenshot showing the YAML pool
+    syntax.](https://microsoftlearning.github.io/AZ400-DesigningandImplementingMicrosoftDevOpsSolutions/Instructions/Labs/images/eshoponweb-ci-pr-agent-pool.png)
 
 4.  On the **eShopOnWeb** edit pane, in the upper right corner of the
     pane, click **Validate and save**. Then click **Save**.
