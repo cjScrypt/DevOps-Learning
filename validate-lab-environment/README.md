@@ -1,95 +1,68 @@
-# Validate Lab Environment
+# Validate lab environment
 
-In preparation for the labs, it is crucial to have your environment correctly set up. This page will guide you through the setup process, ensuring all prerequisites are met.
+## **Lab Environment Setup**
+Before starting the labs, ensure your environment is ready. This page will guide you through the setup process, ensuring all prerequisites are met. Use **Microsoft Edge** or another supported browser.
 
-The labs require Microsoft Edge or an Azure DevOps-supported browser.
-
-## Prerequisites
-
-- **Azure Subscription**: If you don’t already have an Azure subscription, create one by following the instructions on this page or visit [Azure Free](https://azure.microsoft.com/free).
-- **Azure DevOps Organization**: If you don’t already have an Azure DevOps organization, create one by following the instructions on this page or at *Create an organization or project collection*.
-- [Git for Windows](https://gitforwindows.org/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) – Install on the self-hosted agent machines.
-- [.NET SDK (latest version)](https://dotnet.microsoft.com/download/visual-studio-sdks) – Install on the self-hosted agent machines.
-
----
-
-## Instructions to Create an Azure DevOps Organization
-
-> **Note**: Start at step 3 if you already have a personal Microsoft Account setup and an active Azure Subscription.
-
-1. Use a private browser session to get a new personal Microsoft Account (MSA) at [account.microsoft.com](https://account.microsoft.com).
-2. Using the same browser session, sign up for a free Azure subscription at [Azure Free](https://azure.microsoft.com/free).
-3. Navigate to [Azure portal](https://portal.azure.com) and search for **Azure DevOps**.
-4. Click **Azure DevOps organizations** and then **My Azure DevOps Organizations** or go to [aex.dev.azure.com](https://aex.dev.azure.com).
-5. On the **We need a few more details** page, select **Continue**.
-6. In the drop-down, choose **Default Directory** instead of Microsoft Account.
-7. Provide your name, e-mail, and location if prompted, then click **Continue**.
-8. At [aex.dev.azure.com](https://aex.dev.azure.com), select **Create new organization**.
-9. Accept the Terms of Service and click **Continue**.
-10. If prompted (“Almost done”), leave the default organization name and pick a hosting location close to you.
-11. Once created, go to **Organization settings** → **Billing** and link your Azure Subscription.
-12. Change **Paid parallel jobs for MS Hosted CI/CD** from `0` to `1` and click **Save**.
-13. In **Organization Settings** → **Pipelines** → **Settings**, toggle:
-    - `Disable creation of classic build pipelines` → **Off**
-    - `Disable creation of classic release pipelines` → **Off**
-14. In **Organization Settings** → **Security** → **Policies**, toggle:
-    - `Allow public projects` → **On**
+### **Prerequisites**
+- Azure subscription → [Create Free Subscription](https://azure.microsoft.com/free)  
+- Azure DevOps organization → [Create Organization](https://aex.dev.azure.com)  
+- Install tools:  
+  - [Git for Windows](https://gitforwindows.org/)
+  - [Visual Studio Code](https://code.visualstudio.com/)
+  - [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) (on self-hosted agent machine)
+  - [.NET 8 SDK](https://dotnet.microsoft.com/download/visual-studio-sdks) (on self-hosted agent machines)
 
 ---
 
-## Instructions to Create and Configure Azure DevOps Project
+## **Create Azure DevOps Organization** *(once only)*
 
-1. Open your Azure DevOps organization in the browser.
-2. Create a **New Project** with the following settings:
-   - Name: `eShopOnWeb`
-   - Visibility: `Private`
-   - Version Control: `Git`
-   - Work Item Process: `Scrum`
+1. If you don’t have a Microsoft Account + Azure subscription:  
+   - Create an MSA → [account.microsoft.com](https://account.microsoft.com)  
+   - Sign up for Azure Free → [azure.microsoft.com/free](https://azure.microsoft.com/free)  
 
-   ![Create new project](./images/create-project.png)
+2. In [Azure Portal](https://portal.azure.com), search **Azure DevOps** → click **Azure DevOps organizations**.  
 
-### Import eShopOnWeb Git Repository
+3. Go to [aex.dev.azure.com](https://aex.dev.azure.com) → click **Create new organization**.  
 
-1. Navigate to the newly created `eShopOnWeb` project.
-2. Go to **Repos > Files**, select **Import a Repository**, then click **Import**.
-3. Use the URL:  
-   `https://github.com/MicrosoftLearning/eShopOnWeb`
+4. Accept Terms → keep default org name (must be unique) → choose nearest region.  
 
-   ![Import repository](./images/import-repo.png)
-
-4. The repository contains:
-   - `.ado` → Azure DevOps YAML pipelines  
-   - `.devcontainer` → Container setup for VS Code or GitHub Codespaces  
-   - `.azure` → Bicep & ARM infrastructure templates  
-   - `.github` → GitHub workflow YAML definitions  
-   - `src` → .NET 8 website for lab scenarios  
-
-5. Go to **Repos > Branches**, set **main** as the default branch.
+5. In **Organization Settings**:  
+   - **Billing** → link to Azure subscription → set **Paid parallel jobs (MS Hosted)** = 1.  
+   - **Pipelines > Settings** → disable classic build & release pipelines.  
+   - **Security > Policies** → enable **Allow public projects**.  
 
 ---
 
-## Create a Service Connection
+## **Create and Configure Azure DevOps Project** *(once only)*
 
-1. Open [Azure DevOps portal](https://aex.dev.azure.com).
-2. Open the `eShopOnWeb` project and go to **Project settings** → **Service connections** → **Create service connection**.
+### **1. Create Project**
+- Navigate to your DevOps org → click **New Project**.  
+- Settings:  
+  - **Name**: eShopOnWeb  
+  - **Visibility**: Private  
+  - **Version Control**: Git  
+  - **Work Item Process**: Scrum  
 
-   ![New service connection](./images/new-service-connection.png)
+### **2. Import Repository**
+- Open **Repos > Files → Import Repository**.  
+- URL: `https://github.com/MicrosoftLearning/eShopOnWeb`  
+- Set **main** branch as default.  
 
-3. On the New service connection blade:
-   - Select **Azure Resource Manager**
-   - Identity type: **App registration (automatic)**
-   - Workload Identity federation: **On**
-   - Scope level: **Subscription**
+Repository structure highlights:
+- `.ado` → older contains Azure DevOps YAML pipelines.
+- `.devcontainer` → folder container setup to develop using containers (either locally in VS Code or GitHub Codespaces).
+- `.azure` → folder contains Bicep & ARM infrastructure as code templates.
+- `.github` → container YAML GitHub workflow definitions.
+- `src` → contains the .NET 8 website used on the lab scenarios.
 
-4. Fill in:
-   - **Subscription**: Select your Azure subscription
-   - **Resource group**: Choose or create a resource group
-   - **Service connection name**: `azure subs`
+### **3. Create Service Connection**
+- In **Project Settings > Pipelines > Service connections → Create**.  
+- Select **Azure Resource Manager → App registration (automatic)**.  
+- Scope: **Workload Identity federation + Subscription**.  
+- Fill in:  
+  - **Subscription** → your Azure sub  
+  - **Resource Group** → choose/create  
+  - **Name** → `azure subs`  
+- Save (leave “Grant access permission to all pipelines” unchecked).  
 
-   > ⚠️ Do **not** select *Grant access permission to all pipelines* (not recommended for production).
-
----
-
-✅ You have now completed the prerequisite steps to continue with the labs.
+✅ Done — you can now continue with the labs.
