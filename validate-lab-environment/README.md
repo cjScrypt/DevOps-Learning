@@ -1,7 +1,7 @@
 # Validate lab environment
 
 ## **Lab Environment Setup**
-Before starting the labs, ensure your environment is ready. This page will guide you through the setup process, ensuring all prerequisites are met. Use **Microsoft Edge** or another supported browser.
+Before starting the labs, ensure your environment is ready. This page will guide you through the setup process, ensuring all prerequisites are met. Use **Microsoft Edge** or any supported browser.
 
 ### **Prerequisites**
 - Azure subscription → [Create Free Subscription](https://azure.microsoft.com/free)  
@@ -14,7 +14,7 @@ Before starting the labs, ensure your environment is ready. This page will guide
 
 ---
 
-## **Create Azure DevOps Organization** *(once only)*
+## **Create Azure DevOps Organization**
 
 1. If you don’t have a Microsoft Account + Azure subscription:  
    - Create an MSA → [account.microsoft.com](https://account.microsoft.com)  
@@ -33,7 +33,7 @@ Before starting the labs, ensure your environment is ready. This page will guide
 
 ---
 
-## **Create and Configure Azure DevOps Project** *(once only)*
+## **Create and Configure Azure DevOps Project**
 
 ### **1. Create Project**
 - Navigate to your DevOps org → click **New Project**.  
