@@ -32,7 +32,7 @@ In this lab, you will explore **Azure Boards** for agile planning and portfolio 
 1. Go to your Azure DevOps organization → Open the **eShopOnWeb** project.
 2. Navigate to **Project Settings → Teams → New Team** → Name it `EShop-Web` → Create.
 3. Configure team:
-   - **Iterations:** Project Settings → Teams → EShop-Web → Iterations → Add *Sprint 1* (3 weeks). Add *Sprint 2* and *Sprint 3*.
+   - **Iterations:** Project Settings → Teams → EShop-Web → Iterations and Area Paths → Iterations. Add three sprints (*Sprint 1*, *Sprint 2* and *Sprint 3*). Edit each sprint to set a 3-week duration. Make sure each new sprint begins immediately after the previous one ends.
    - **Areas:** Project Settings → Teams → EShop-Web → Areas → Set default to **Include sub-areas**.
 
 ### **Task 2: Manage Work Items**
@@ -42,27 +42,30 @@ In this lab, you will explore **Azure Boards** for agile planning and portfolio 
    - Iteration: `Sprint 2`.
    - Save.
 2. Under **Related Work**, add **Child → Feature** → Title: *Training dashboard*.
-3. Go to **Boards → Boards → Switch view to Features** → Add **Product Backlog Items (PBIs)**:
+3. Go to **Boards → Boards, select **EShop-Web**. Switch view to Features** and click **Add Product Backlog Items (PBIs)**:
    - *As a customer, I want to view new tutorials.*
    - *As a customer, I want to see tutorials I recently viewed.*
    - *As a customer, I want to request new tutorials.*
-4. Drag PBIs across stages (*New → Approved → Committed → Done*).
-5. Expand PBI cards → Assign to yourself → Add **Tasks**:
+4. On the **Board** tab, drag *“As a customer, I want to view new tutorials”* from **New → Approved**.  
+5. Hover over the card, click the down caret, and assign it to yourself by replacing *Unassigned* with your name.  
+6. Drag *“As a customer, I want to see tutorials I recently viewed”* from **New → Committed**.  
+7. Drag *“As a customer, I want to request new tutorials”* from **New → Done**.
+8. Add **Tasks**:
    - Task: *Add page for most recent tutorials* (Remaining Work: 5, Activity: Development).
    - Task: *Optimize data query for most recent tutorials* (Remaining Work: 3, Activity: Design).
 
 ### **Task 3: Manage Sprints and Capacity**
-1. Go to **Boards → Sprints → Taskboard** → Select *Sprint 2*.
+1. Go to **Boards → Boards → Sprints → Taskboard**. Select **View options** and activate **Work details** side pane. Select *Sprint 2* as filter.
 2. Assign tasks to yourself.
-3. Go to **Capacity tab**:
-   - Add Activity: *Development*, Capacity per day = 1 hour.
-   - Add 5 days off.
+3. Go to **Capacity** tab:
+   - Add Activity: *Development*, Capacity per day = 1 (Representing 1 hour of development work per day).
+   - Add 5 days off during the current sprint.
    - Save.
-4. Update Remaining Work for *Add page for most recent tutorials* → 14.
+4. Update estimated number of work hours for *Add page for most recent tutorials* to 9.
 5. Switch to **View → Assigned To** for workload overview.
 6. Customize sprint board:
    - **Board Settings → Styles** → Add rule (Activity = Development → green cards).
-   - **Board Settings → General** → Adjust navigation levels, working days, bug handling.
+   - **Board Settings → General** →  Working days, Customize your team working day.
 
 ### **Task 4: Customize Kanban Boards**
 1. Go to **Boards → Board Settings → Tag Colors** → Add tag *data* (yellow).
